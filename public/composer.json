@@ -1,0 +1,12 @@
+{
+    "name": "haapala/portfolio",
+    "authors": [
+        {
+            "name": "Lassi Haapala",
+            "email": "lassi.p.haapala@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

@@ -1,47 +1,47 @@
-/**
- *
- * -----------------------------------------------------------------------------
- *
- * Template : Reeni Personal Portfolio HTML Template
- * Author : themes-park
- * Author URI : https://themes-park.com/ 
- *
- * -----------------------------------------------------------------------------
- *
- **/
-
 (function ($) {
-    'use strict';
+  "use strict";
 
-    var form = $('#contact-form');
-    var formMessages = $('#form-messages');
+  var form = $("#contact-form");
+  var formMessages = $("#form-messages");
 
-    $(form).submit(function (e) {
-        e.preventDefault();
+  $(form).submit(function (e) {
+    e.preventDefault();
 
-        // Form data serialize + phone field যুক্ত করা
-        var formData = $(form).serialize() + "&phone=" + $('#contact-phone').val();
+    var submitBtn = $("#submit");
+    submitBtn.prop("disabled", true);
+    submitBtn.find(".btn-text").text("Sending...");
 
-        $.ajax({
-            type: 'POST',
-            url: $(form).attr('action'),
-            data: formData
-        })
-        .done(function (response) {
-            $(formMessages).removeClass('error').addClass('success').text(response);
+    var formData = $(form).serialize() + "&phone=" + $("#contact-phone").val();
 
-            // ইনপুট ফিল্ড ক্লিয়ার করা
-            $('#contact-name, #contact-email, #subject, #contact-message, #contact-phone').val('');
-        })
-        .fail(function (data) {
-            $(formMessages).removeClass('success').addClass('error');
+    $.ajax({
+      type: "POST",
+      url: $(form).attr("action"),
+      data: formData,
+    })
+      .done(function (response) {
+        $(formMessages).removeClass("error").addClass("success").text(response);
+        $(
+          "#contact-name, #contact-email, #subject, #contact-message, #contact-phone",
+        ).val("");
 
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occurred and your message could not be sent.');
-            }
-        });
-    });
+        // Disable form after successful submission
+        $(form).find("input, textarea, button").prop("disabled", true);
+        submitBtn.find(".btn-text").text("Message Sent");
+      })
+      .fail(function (data) {
+        $(formMessages).removeClass("success").addClass("error");
 
+        if (data.responseText !== "") {
+          $(formMessages).text(data.responseText);
+        } else {
+          $(formMessages).text(
+            "Oops! An error occurred and your message could not be sent.",
+          );
+        }
+
+        // Re-enable button on failure
+        submitBtn.prop("disabled", false);
+        submitBtn.find(".btn-text").text("Contact Me");
+      });
+  });
 })(jQuery);
