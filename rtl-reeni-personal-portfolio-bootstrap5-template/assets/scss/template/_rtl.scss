@@ -1,0 +1,169 @@
+
+
+[dir="rtl"]{
+    .tmp-mainmenu-nav .tmp-mainmenu > li > a i {
+        margin-left: 0;
+        margin-right: 3px;
+    }
+    .tmp-link-animation a:hover::after {
+        transform-origin: bottom right;
+    }
+    .tmp-link-animation a::after {
+        right: 0;
+        transform-origin: bottom left;
+    }
+    .custom-title span {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+    .progress-charts .progress .progress-bar span.percent-label {
+        right: auto;
+        left: 0;
+    }
+
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(50%, 0, 0);
+            transform: translate3d(50%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    .service-card-v2 .service-card-num span {
+        margin-right: 0;
+        margin-left: 15px;
+    }
+    @media (min-width: 1200px) {
+        .service-card-user-image {
+            margin-left: 0;
+            margin-right: 70px;
+        }
+    }
+    .section-head.text-align-left {
+        text-align: right;
+    }
+
+    .newsletter-form-1 input {
+        padding-right: 0;
+        padding-left: 20px;
+        text-align: right;
+    }
+    @media (min-width: 992px) {
+        .banner-two-main-wrapper .banner-right-content .main-img .logo-under-img-wrap {
+            left: 0;
+            right: -110px;
+        }
+    }
+
+    .cd-headline.clip .cd-words-wrapper::after{
+        left: 0;
+        right: auto;
+    }
+    @media (min-width: 1200px) {
+        .experiences-wrapper .experiences-wrap-left-content {
+            padding-right: 0;
+            padding-left: 138px;
+        }
+    }
+    .fa-angle-right:before {
+        content: "\f104";
+    }
+    .tmp-btn i {
+        padding-right: 6px;
+        padding-left: auto;
+        
+    }
+    .fa-arrow-right:before {
+        content: "\f060";
+    }
+    .scrollToTop {
+        left: 20px;
+        right: auto;
+    }
+    .signle-side-bar.search-area button {
+        right: auto;
+        left: 0;
+    }
+    .signle-side-bar .header .title::after {
+        right: auto;
+        left: -20px;
+    }
+    .single-comment-audience.pl--100{
+        padding-left: 0;
+        padding-right: 100px;
+    }
+    .signle-side-bar.search-area input {
+        padding-right: 15px;
+        padding-left: 60px;
+    }
+    .blog-details-left-area .quote-area-blog-details .author {
+        max-width: max-content;
+    }
+    .contact-form .contact-form-wrapper .form-group input{
+        direction: rtl;
+    }
+    .contact-get-in-touch-wrap .get-in-touch-wrapper .section-head {
+        padding-left: 80px;
+        padding-right: 0;
+    }
+    .newslatter .newsletter-form-1 {
+        padding: 5px 20px 5px 5px;
+    }
+    .tmp-btn:hover.hover-icon-reverse .btn-text {
+        transition-delay: 0.1s;
+        transform: translateX(-23px);
+    }
+    .tmp-btn:hover.hover-icon-reverse .btn-icon + .btn-icon {
+        opacity: 1;
+        transform: translateX(4px);
+        transition-delay: 0.225s;
+    }
+    .ready-chatting-option label {
+        right: auto;
+        left: 20px;
+    }
+    .ready-chatting-option .wrapper {
+        right: auto;
+        left: 90px;
+    }
+    .ready-chatting-option form .field input, .ready-chatting-option form .field button, .ready-chatting-option form .textarea textarea {
+        direction: rtl;
+    }
+    .blog-card-style-two .blog-content-wrap .blog-tags ul li a i {
+        margin-left: 10px;
+        margin-right: auto;
+    }
+    .header-left-sticky {
+        left: auto;
+        right: 0px;
+    }
+    .page-with-left-header {
+        margin-right: 290px;
+        margin-left: auto;
+    }
+    .header-left-sticky .mainmenu-nav .primary-menu li a svg{
+        margin-right: 0;
+        margin-left: 8px;
+    }
+    .personal-portfolio-right-inner-wrapper {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
