@@ -196,10 +196,29 @@
                         <div class="col-lg-12">
                             <div class="inner text-center">
                                 <div class="thumbnail-author">
-                                    <img
-                                        src="assets/images/main/pfp.jpg"
-                                        alt="Lauri Haapala"
-                                    />
+                                    <picture>
+                                        <source
+                                            type="image/webp"
+                                            srcset="
+                                                assets/images/main/pfp-350.webp 350w,
+                                                assets/images/main/pfp-700.webp 700w
+                                            "
+                                            sizes="(max-width: 575px) 250px, 350px"
+                                        />
+                                        <img
+                                            src="assets/images/main/pfp-350.jpg"
+                                            srcset="
+                                                assets/images/main/pfp-350.jpg 350w,
+                                                assets/images/main/pfp-700.jpg 700w
+                                            "
+                                            sizes="(max-width: 575px) 250px, 350px"
+                                            width="350"
+                                            height="350"
+                                            fetchpriority="high"
+                                            decoding="async"
+                                            alt="Lassi Haapala"
+                                        />
+                                    </picture>
                                 </div>
                                 <h1
                                     class="title tmp-scroll-trigger tmp-fade-in animation-order-2"
