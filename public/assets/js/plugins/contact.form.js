@@ -39,6 +39,11 @@
           );
         }
 
+        // Turnstile tokens are single use
+        if (window.turnstile) {
+          window.turnstile.reset();
+        }
+
         // Re-enable button on failure
         submitBtn.prop("disabled", false);
         submitBtn.find(".btn-text").text("Contact Me");
