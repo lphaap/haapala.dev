@@ -11,7 +11,39 @@ $smtp_username = SMTP_USERNAME; // Your Gmail address
 $smtp_password = SMTP_PASSWORD; // Gmail App Password (16 characters)
 $recipient = "lassi@haapala.dev"; // Where to receive emails
 
+function is_turnstile_valid($token)
+{
+    if (empty($token)) {
+        return false;
+    }
+
+    $ch = curl_init("https://challenges.cloudflare.com/turnstile/v0/siteverify");
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => [
+            "secret" => TURNSTILE_SECRET,
+            "response" => $token,
+            "remoteip" => $_SERVER["REMOTE_ADDR"],
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+    ]);
+    $body = curl_exec($ch);
+    curl_close($ch);
+
+    $result = json_decode($body, true);
+    return !empty($result["success"]);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $turnstile_token = $_POST["cf-turnstile-response"] ?? "";
+    $is_human = is_turnstile_valid($turnstile_token);
+    if (!$is_human) {
+        http_response_code(400);
+        echo "Bot check failed, please try again.";
+        exit();
+    }
+
     $name = strip_tags(trim($_POST["name"]));
     $name = str_replace(["\r", "\n"], [" ", " "], $name);
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
